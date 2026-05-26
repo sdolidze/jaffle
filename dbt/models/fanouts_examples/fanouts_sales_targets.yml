@@ -45,3 +45,14 @@ models:
               label: "🚨 INFLATED Total Target Deal Amount"
           dimension:
             type: number
+      - name: tiger_goal
+        description: "Stretch (tiger) goal — 1.5x the standard target amount"
+        meta:
+          metrics:
+            tiger_goal_sum:
+              type: sum
+              label: Tiger Goal Sum
+              description: Sum of tiger goal values
+              sql: "${tiger_goal}"
+          dimension:
+            type: number
