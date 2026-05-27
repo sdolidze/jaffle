@@ -162,6 +162,12 @@ models:
           metrics:
             count:
               type: count
+      - name: rocket_ship
+        description: "A sample column called Rocket Ship added to the events table."
+        meta:
+          dimension:
+            label: "Rocket Ship"
+            type: string
       - name: image_url
         description: "Image URL for the event from events.sql"
         meta:
