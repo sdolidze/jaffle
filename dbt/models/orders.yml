@@ -343,8 +343,8 @@ models:
                 spotlight:
                   categories: ["revenue_growth"]
               tiger_goal_sum:
-                label: Tiger Goal Sum
-                description: Sum of the amount column for orders
+                label: "Tiger Goal Sum"
+                description: "The total sum of the order amount field across all orders. Used to track the cumulative goal value for tiger-related order targets."
                 type: sum
               average_order_amount:
                 type: average
