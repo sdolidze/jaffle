@@ -342,8 +342,8 @@ models:
                   interval: DAY
                 spotlight:
                   categories: ["revenue_growth"]
-              tiger_goal_sum:
-                label: Tiger Goal Sum
+              lion_goal_sum:
+                label: Lion Goal Sum
                 type: sum
                 description: Sum of the amount field for orders (tiger goal metric)
                 sql: ${amount}
