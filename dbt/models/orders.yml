@@ -81,8 +81,8 @@ models:
             sql_on: ${orders.status} = ${raw_order_statuses.status}
             relationship: many-to-one
         metrics:
-          total_tigers:
-            label: Total Tigers
+          tiger:
+            label: Tiger
             description: Count of total tigers (total number of orders)
             type: count
             sql: "1"
