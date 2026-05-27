@@ -81,9 +81,9 @@ models:
             sql_on: ${orders.status} = ${raw_order_statuses.status}
             relationship: many-to-one
         metrics:
-          tiger:
-            label: Tiger
-            description: Count of total tigers (total number of orders)
+          leopard:
+            label: Leopard
+            description: Count of leopards (total number of orders)
             type: count
             sql: "1"
           completion_percentage:
