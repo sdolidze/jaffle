@@ -441,9 +441,9 @@ models:
                 sql: ${amount}
                 filters:
                   - date_dim_param_test: "param is greater"
-              net_revenue:
+              net_net_revenue:
                 type: sum
-                label: Net Revenue
+                label: Net Net Revenue
                 description: Net revenue calculated as total revenue minus refunds.
                 sql: ${amount}
                 format: usd
