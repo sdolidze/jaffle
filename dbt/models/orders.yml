@@ -112,6 +112,11 @@ models:
             drivers:
               - total_order_amount
               - customers.average_age
+          tiger_goal_sum:
+            type: sum
+            sql: ${amount}
+            label: Tiger Goal Sum
+            description: Sum of the amount field for orders (tiger goal sum metric)
         default_time_dimension:
           field: order_date
           interval: MONTH
