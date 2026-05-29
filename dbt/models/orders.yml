@@ -441,8 +441,8 @@ models:
                 sql: ${amount}
                 filters:
                   - date_dim_param_test: "param is greater"
-              tiger_goal_sum:
-                label: Tiger Goal Sum
+              lion_goal_sum:
+                label: Lion Goal Sum
                 description: Sum of the amount field on the orders table
                 type: sum
         meta:
