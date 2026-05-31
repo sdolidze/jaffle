@@ -1,0 +1,35 @@
+version: 2
+models:
+  - name: sandro_test
+    description: SQL model for Sandro test
+    meta:
+      label: Sandro test
+    columns:
+      - name: date
+        meta:
+          dimension:
+            type: date
+      - name: event
+        meta:
+          dimension:
+            type: string
+      - name: event_id
+        meta:
+          dimension:
+            type: number
+      - name: image_url
+        meta:
+          dimension:
+            type: string
+      - name: timestamp_tz
+        meta:
+          dimension:
+            type: timestamp
+      - name: timestamp_ltz
+        meta:
+          dimension:
+            type: timestamp
+      - name: timestamp_ntz
+        meta:
+          dimension:
+            type: timestamp
