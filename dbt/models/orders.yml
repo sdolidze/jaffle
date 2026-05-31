@@ -690,6 +690,20 @@ models:
               west_coast: "#ff7f0e"
               central: "#2ca02c"
 
+      - name: unicorn_count
+        description: Number of unicorns spotted for this order
+        config:
+          meta:
+            metrics:
+              total_unicorn_sightings:
+                label: "Total Unicorn Sightings"
+                description: "Total number of unicorns spotted across all orders \U0001F984"
+                type: sum
+                sql: unicorn_count
+        meta:
+          dimension:
+            type: number
+
       - name: order_notes
         description: Additional notes and context about the order
         meta:
