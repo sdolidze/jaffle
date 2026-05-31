@@ -112,6 +112,12 @@ models:
             drivers:
               - total_order_amount
               - customers.average_age
+          total_net_revenue:
+            label: "Total Net Revenue"
+            type: number
+            sql: ${total_order_amount} + ${total_shipping_revenue} - ${total_tax_collected}
+            description: "True top-line revenue (order amount + shipping − tax collected)."
+            format: "$#,##0.00"
         default_time_dimension:
           field: order_date
           interval: MONTH
