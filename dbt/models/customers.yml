@@ -263,3 +263,18 @@ models:
         meta:
           dimension:
             type: number
+      - name: spell_power
+        description: Spell power of the customer (wizard attribute)
+        config:
+          meta:
+            dimension:
+              type: number
+            metrics:
+              avg_wizard_spell_power:
+                label: "Average Wizard Spell Power"
+                description: "Average spell power across all wizards :mage:"
+                type: average
+                sql: spell_power
+        meta:
+          dimension:
+            type: number
