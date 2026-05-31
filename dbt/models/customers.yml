@@ -99,6 +99,13 @@ models:
                   ### ⚠️ ${ value.formatted }
                   **Low** Average CLV - _Needs attention!_
                   {% endif %}{% endraw %}
+              repeat_customer_rate:
+                label: "Repeat Customer Rate"
+                description: "The share of customers who have placed more than one order, expressed as a percentage."
+                type: number
+                sql: 1.0 * COUNT(CASE WHEN ${number_of_orders} > 1 THEN ${customer_id} END) / NULLIF(COUNT(${customer_id}), 0)
+                format: percent
+                round: 2
         meta:
           dimension:
             type: number
@@ -263,3 +270,18 @@ models:
         meta:
           dimension:
             type: number
+      - name: customer_loyalty_tier
+        description: "Buckets customers by number of orders into loyalty tiers: New (0 orders), Returning (1 order), Loyal (2–4 orders), Champion (5+ orders)."
+        config:
+          meta:
+            dimension:
+              label: "Customer Loyalty Tier"
+              type: string
+              sql: |
+                CASE
+                  WHEN ${number_of_orders} = 0 THEN 'New'
+                  WHEN ${number_of_orders} = 1 THEN 'Returning'
+                  WHEN ${number_of_orders} BETWEEN 2 AND 4 THEN 'Loyal'
+                  WHEN ${number_of_orders} >= 5 THEN 'Champion'
+                  ELSE 'Unknown'
+                END
