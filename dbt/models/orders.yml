@@ -690,6 +690,20 @@ models:
               west_coast: "#ff7f0e"
               central: "#2ca02c"
 
+      - name: dragon_flight_count
+        description: Number of dragon flights associated with the order
+        config:
+          meta:
+            metrics:
+              total_dragon_flights:
+                type: sum
+                label: Total Dragon Flights
+                description: "Total number of dragon flights across all orders :dragon:"
+                sql: dragon_flight_count
+        meta:
+          dimension:
+            type: number
+
       - name: order_notes
         description: Additional notes and context about the order
         meta:
