@@ -696,3 +696,16 @@ models:
           dimension:
             type: string
             hidden: true
+
+      - name: goblin_id
+        description: Identifier for the goblin involved in the order
+        config:
+          meta:
+            metrics:
+              count_distinct_goblins:
+                label: Distinct Goblins
+                description: "Number of unique goblins involved in orders \U0001F47A"
+                type: count_distinct
+        meta:
+          dimension:
+            type: string
