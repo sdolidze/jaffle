@@ -145,6 +145,10 @@ models:
                 label: Smoke C Seed
                 description: A dummy count metric for smoke testing purposes.
                 type: count
+              smoke_c_update:
+                label: Smoke C Update
+                description: A dummy count metric for smoke testing.
+                type: count
               unique_order_count:
                 type: count_distinct
                 spotlight:
