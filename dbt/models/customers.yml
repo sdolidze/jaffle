@@ -4,6 +4,7 @@ models:
     config:
       tags: ["core", "ai"]
       meta:
+        description: "One record per customer, with basic profile information and aggregated order history metrics."
         parameters:
           customer_name:
             label: "Customer name"
