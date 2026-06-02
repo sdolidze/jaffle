@@ -141,6 +141,10 @@ models:
         config:
           meta:
             metrics:
+              smoke_seed_a:
+                label: Smoke Seed A
+                type: count
+                description: "Dummy count metric for smoke testing purposes"
               unique_order_count:
                 type: count_distinct
                 spotlight:
