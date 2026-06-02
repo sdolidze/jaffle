@@ -141,6 +141,10 @@ models:
         config:
           meta:
             metrics:
+              smoke_c_seed:
+                label: Smoke C Seed
+                description: A dummy count metric for smoke testing purposes.
+                type: count
               unique_order_count:
                 type: count_distinct
                 spotlight:
