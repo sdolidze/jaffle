@@ -162,6 +162,10 @@ models:
                   - status:
                       - completed
                       - shipped
+              dummy_metric:
+                label: Dummy Metric
+                description: A dummy metric added for testing
+                type: count
         meta:
           dimension:
             type: number
