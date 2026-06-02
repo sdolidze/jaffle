@@ -36,8 +36,18 @@ models:
     description: |
       # Customers
 
-      This table has basic information about a customer, as well as some derived
-      facts based on a customer's orders
+      One row per customer. Combines customer demographics from `stg_customers`
+      with order history and lifetime payment totals sourced from `stg_orders`
+      and `stg_payments`.
+
+      Key fields:
+      - **Identity**: `customer_id`, `first_name`, `last_name`, `full_name`, `age`
+      - **Tenure**: `created` (account creation timestamp), `first_order`, `most_recent_order`
+      - **Activity**: `number_of_orders`, `days_since_last_order`, `days_between_created_and_first_order`
+      - **Value**: `customer_lifetime_value` (sum of all payments made by the customer)
+
+      The `customer_loyalty_tier` computed dimension buckets customers into
+      New / Returning / Loyal / Champion tiers based on order count.
     columns:
       - name: customer_id
         description: This is a unique identifier for a customer
