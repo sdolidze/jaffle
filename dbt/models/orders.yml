@@ -112,6 +112,10 @@ models:
             drivers:
               - total_order_amount
               - customers.average_age
+          postrebase_seed:
+            label: Postrebase Seed
+            type: count
+            description: A dummy count metric named postrebase_seed added for testing purposes.
         default_time_dimension:
           field: order_date
           interval: MONTH
