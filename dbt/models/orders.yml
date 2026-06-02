@@ -145,6 +145,9 @@ models:
                 label: Smoke Seed A
                 type: count
                 description: "Dummy count metric for smoke testing purposes"
+              clean_update_a:
+                type: count
+                description: "Dummy count metric for orders."
               unique_order_count:
                 type: count_distinct
                 spotlight:
