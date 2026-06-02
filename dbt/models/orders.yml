@@ -141,13 +141,13 @@ models:
         config:
           meta:
             metrics:
-              smoke_c_seed:
-                label: Smoke C Seed
-                description: A dummy count metric for smoke testing purposes.
+              paper_c_seed:
+                label: Paper C Seed
+                description: A dummy count metric for paper testing purposes.
                 type: count
-              smoke_c_update:
-                label: Smoke C Update
-                description: A dummy count metric for smoke testing.
+              paper_c_update:
+                label: Paper C Update
+                description: A dummy count metric for paper testing.
                 type: count
               unique_order_count:
                 type: count_distinct
