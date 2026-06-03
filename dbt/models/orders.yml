@@ -334,6 +334,7 @@ models:
                   - total_order_amount
                   - customers.unique_customer_count # cross-table driver example
               total_order_amount:
+                description: 'Gross order revenue before refunds.'
                 type: sum
                 format: usd
                 round: 2
