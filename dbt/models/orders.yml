@@ -439,10 +439,6 @@ models:
                 sql: ${amount}
                 filters:
                   - date_dim_param_test: "param is greater"
-              test_js_m1:
-                type: sum
-                label: "Test js M1"
-                sql: ${TABLE}.amount
               test_js_m2:
                 type: sum
                 label: "Test js M2"
