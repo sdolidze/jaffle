@@ -9,6 +9,7 @@ models:
     config:
       tags: ["core", "ai"]
       meta:
+        description: "Orders fact table (regular-path writeback test)"
         pre_aggregates:
           - name: orders_daily_avg_demo
             dimensions:
