@@ -443,10 +443,6 @@ models:
                 type: sum
                 label: "Test js M1"
                 sql: ${TABLE}.amount
-              test_js_m2:
-                type: sum
-                label: "Test js M2"
-                sql: ${TABLE}.amount
               test_js_m3:
                 type: sum
                 label: "Test js M3"
