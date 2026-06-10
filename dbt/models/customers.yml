@@ -56,10 +56,10 @@ models:
                 tags: ["ai", "period_metric"]
                 type: count_distinct
                 label: Unique customer count
-                description: Total number of customers
+                description: Count of distinct customer IDs. Each customer is counted once regardless of how many orders they have placed. Use this metric to answer questions about unique customers.
                 spotlight:
                   categories: ["core", "revenue_growth"]
-                ai_hint: Unique customer count.
+                ai_hint: "Counts distinct customer_id values using COUNT_DISTINCT — each customer is counted once even if they placed multiple orders. Do not use a plain COUNT here."
               total_order_amount_deduped:
                 type: sum_distinct
                 sql: ${orders.amount}
