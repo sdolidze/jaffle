@@ -66,7 +66,8 @@ models:
                   owner: demo2@lightdash.com
                   categories: ['revenue_growth']
                 type: sum
-                description: Sum of all payments
+                description: Sum of all payment amounts for completed orders only. Excludes pending, return_pending, and returned orders.
+                ai_hint: "Only include payments for orders where orders.status = 'completed'. Never count payments linked to orders with status 'placed', 'shipped', 'return_pending', or 'returned'. Always apply a filter on orders.status = 'completed' when using this metric."
                 # E2E tests rely on these values
                 show_underlying_values:
                   # Metrics
