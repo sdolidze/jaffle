@@ -1,0 +1,14 @@
+# What your AI agents read before they answer.
+# Add things here to teach them your terms and how your data fits together.
+# Merge a change to this file and your future answers get better.
+# Managed from the Reviews tab under Ask AI.
+version: 1
+entries:
+  - id: active-customer
+    kind: definition
+    content: An 'active customer' is defined as a customer with at least one completed order in the last 30 days.
+    terms:
+      - active customer
+      - active customers
+    objects:
+      - customers
