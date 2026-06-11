@@ -344,8 +344,12 @@ models:
                   categories: ["revenue_growth"]
               average_order_amount:
                 type: average
+                label: Average Order Amount
+                description: Average order amount (USD) for completed orders only. Excludes placed, shipped, returned, and return_pending orders.
                 format: usd
                 round: 2
+                filters:
+                  - is_completed: "true"
               amount_percent_of_previous:
                 type: percent_of_previous
                 sql: ${total_order_amount}
