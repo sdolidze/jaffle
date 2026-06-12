@@ -80,10 +80,17 @@ models:
                 description: "Regular SUM of order amount — inflated by join fan-out when orders have multiple payments. Compare with total_order_amount_deduped to see the difference."
                 format: usd
                 round: 2
+              total_completed_order_amount_deduped:
+                type: sum_distinct
+                sql: CASE WHEN ${orders.is_completed} THEN ${orders.amount} ELSE NULL END
+                distinct_keys: [orders.order_id]
+                description: "Total order amount for completed orders only, deduplicated to avoid fan-out inflation when joining through payments."
+                format: usd
+                round: 2
               average_customer_lifetime_value:
                 type: number
-                sql: ${total_order_amount_deduped} / NULLIF(${unique_customer_count}, 0)
-                description: "Average lifetime value per customer, calculated using the deduped order total to avoid fan-out inflation."
+                sql: ${total_completed_order_amount_deduped} / NULLIF(${unique_customer_count}, 0)
+                description: "Average lifetime value per customer from completed orders only, deduplicated to avoid fan-out inflation. Excludes placed, shipped, return_pending, and returned orders."
                 format: usd
                 round: 2
                 richText: |
@@ -261,7 +268,7 @@ models:
           dimension:
             type: number
       - name: customer_lifetime_value
-        description: ""
+        description: "Total payment amount across all order statuses (placed, shipped, completed, return_pending, returned). For completed-orders-only lifetime value, use the average_customer_lifetime_value metric which filters to completed orders."
         config:
           meta:
             tags: ["ai"]
