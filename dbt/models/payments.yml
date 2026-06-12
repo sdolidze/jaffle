@@ -79,3 +79,9 @@ models:
                 drivers:
                   - unique_payment_count
                   - orders.total_order_amount
+              refund_amount:
+                type: sum
+                sql: "CASE WHEN ${orders.status} = 'returned' THEN ${payments.amount} ELSE 0 END"
+                description: "Total payment amount for orders with returned status. Used as a proxy for refunded revenue — the warehouse does not track actual refund transactions separately."
+                format: usd
+                round: 2
