@@ -9,6 +9,7 @@ models:
     config:
       tags: ["core", "ai"]
       meta:
+        description: "writeback test GH-3 base"
         pre_aggregates:
           - name: orders_daily_avg_demo
             dimensions:
