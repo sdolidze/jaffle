@@ -1,0 +1,13 @@
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: No-op
+        run: echo "Deploy placeholder — nothing to do yet"

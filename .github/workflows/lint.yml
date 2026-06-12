@@ -1,0 +1,11 @@
+name: Lint
+
+on:
+  pull_request:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: No-op
+        run: echo "Lint placeholder — nothing to do yet"
