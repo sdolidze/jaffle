@@ -201,6 +201,21 @@ models:
           - relationships:
               to: ref('customers')
               field: customer_id
+        config:
+          meta:
+            additional_dimensions:
+              guest_checkout_flag:
+                type: boolean
+                label: Guest Checkout Flag
+                description: >
+                  True when the order has no associated customer account (NULL customer_id),
+                  identifying it as a guest checkout. Filter this to false to exclude guest
+                  checkouts from repeat customer calculations.
+                sql: "${TABLE}.customer_id IS NULL"
+                ai_hint: |
+                  Use this boolean flag to exclude guest checkouts from repeat customer metrics.
+                  Guest checkouts (customer_id IS NULL) have no account and must not count
+                  toward repeat customer status or repeat_customer_rate calculations.
         meta:
           dimension:
             type: number
