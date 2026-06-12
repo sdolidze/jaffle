@@ -344,6 +344,8 @@ models:
                   categories: ["revenue_growth"]
               average_order_amount:
                 type: average
+                sql: ${amount} - ${coupon_amount}
+                description: Average order value net of coupon discounts (amount minus coupon_amount)
                 format: usd
                 round: 2
               amount_percent_of_previous:
