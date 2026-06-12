@@ -285,7 +285,10 @@ models:
           dimension:
             type: string
       - name: amount
-        description: Total amount (USD) of the order
+        description: >
+          Total amount (USD) of the order — the product subtotal only,
+          excluding tax and shipping. This is the canonical definition of
+          revenue for this project.
         tests:
           - not_null
         config:
@@ -337,6 +340,19 @@ models:
                 type: sum
                 format: usd
                 round: 2
+                description: >
+                  Sum of the product subtotal (USD) across all order statuses,
+                  excluding tax and shipping. Includes placed, shipped,
+                  completed, return_pending, and returned orders. For revenue
+                  reporting (completed/shipped orders only) use
+                  total_completed_order_amount instead.
+                ai_hint: >
+                  Revenue is defined as the product subtotal only — tax is
+                  tracked in total_tax_collected and shipping in
+                  total_shipping_revenue; neither is included here. This metric
+                  counts all statuses including cancelled/returned orders. For
+                  recognised revenue, use total_completed_order_amount which
+                  filters to completed orders only.
                 default_time_dimension:
                   field: order_date
                   interval: DAY
@@ -609,6 +625,11 @@ models:
                 type: sum
                 format: usd
                 label: Total Shipping Revenue
+                description: >
+                  Sum of shipping costs charged to customers. This is NOT
+                  product revenue — shipping fees are excluded from the revenue
+                  definition (product subtotal only). Use this separately from
+                  total_order_amount when analysing fulfilment costs.
               avg_shipping_cost:
                 type: average
                 format: usd
@@ -651,6 +672,11 @@ models:
                 sql: amount * tax_rate
                 format: usd
                 label: Total Tax Collected
+                description: >
+                  Estimated tax collected (amount × tax_rate, in USD). This is
+                  NOT product revenue — tax is excluded from the revenue
+                  definition (product subtotal only). Use this separately from
+                  total_order_amount when reporting on tax obligations.
         meta:
           dimension:
             type: number
