@@ -101,11 +101,12 @@ models:
                   {% endif %}{% endraw %}
               repeat_customer_rate:
                 label: "Repeat Customer Rate"
-                description: "The share of customers who have placed more than one order, expressed as a percentage."
+                description: "The share of customers who have 2 or more completed orders, expressed as a percentage."
                 type: number
                 sql: 1.0 * COUNT(CASE WHEN ${number_of_orders} > 1 THEN ${customer_id} END) / NULLIF(COUNT(${customer_id}), 0)
                 format: percent
                 round: 2
+                ai_hint: "A repeat customer requires 2 or more completed orders. The underlying number_of_orders field counts orders of any status, so this metric currently approximates the true completed-order repeat rate and may overcount. For exact results, the customers dbt model needs a number_of_completed_orders column."
         meta:
           dimension:
             type: number
