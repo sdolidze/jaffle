@@ -235,6 +235,7 @@ models:
             tags: ["ai"]
             dimension:
               hidden: true
+              sql: "(CURRENT_DATE - ${most_recent_order}::date)"
         meta:
           dimension:
             type: number
