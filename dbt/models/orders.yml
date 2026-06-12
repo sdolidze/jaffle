@@ -372,6 +372,9 @@ models:
                 round: 2
               total_completed_order_amount:
                 type: sum
+                label: Total Completed Order Amount
+                description: "Revenue from completed orders only — excludes placed, shipped, cancelled, and returned orders. Use this metric for revenue reporting. Uses the product subtotal (amount) in USD."
+                ai_hint: "Primary revenue metric. Filters to is_completed=true, so it excludes cancelled, placed, shipped, and returned orders."
                 format: usd
                 round: 2
                 filters:
