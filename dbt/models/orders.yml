@@ -344,6 +344,9 @@ models:
                   categories: ["revenue_growth"]
               average_order_amount:
                 type: average
+                sql: ${amount} - ${coupon_amount}
+                label: Average order amount (net of coupons)
+                description: Average order amount after deducting coupon discounts. Returns net value (amount minus coupon_amount) for completed and non-completed orders.
                 format: usd
                 round: 2
               amount_percent_of_previous:
