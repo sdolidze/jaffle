@@ -56,10 +56,19 @@ models:
                 tags: ["ai", "period_metric"]
                 type: count_distinct
                 label: Unique customer count
-                description: Total number of customers
+                description: >-
+                  Count of distinct customers (COUNT DISTINCT on customer_id).
+                  Safe to use from both the customers explore and the orders explore.
+                  When queried from the orders explore (orders → customers, many-to-one join),
+                  this metric counts each customer once regardless of how many order rows
+                  that customer has — join fanout does not inflate this count.
                 spotlight:
                   categories: ["core", "revenue_growth"]
-                ai_hint: Unique customer count.
+                ai_hint: >-
+                  Counts unique customers using COUNT DISTINCT on customer_id.
+                  When used from the orders explore, the many-to-one join (many orders per customer)
+                  does not cause double-counting — each customer is counted exactly once.
+                  Use this metric (not a row count) whenever the question asks for distinct customers.
               total_order_amount_deduped:
                 type: sum_distinct
                 sql: ${orders.amount}
