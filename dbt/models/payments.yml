@@ -67,6 +67,14 @@ models:
                   categories: ['revenue_growth']
                 type: sum
                 description: Sum of all payments
+                ai_hint: |
+                  Payments do not have their own date column. To filter revenue by time period,
+                  use orders.order_date (e.g. orders_order_date_month). The join to orders via
+                  order_id is already in place, so date filters on that dimension apply correctly.
+                  This dataset contains historical demo data — filtering for recent calendar periods
+                  (such as "last month" relative to today) will return zero rows because the data
+                  predates the query window. When a date-filtered query returns zero, report the
+                  actual date range of the data rather than concluding no revenue exists.
                 # E2E tests rely on these values
                 show_underlying_values:
                   # Metrics
