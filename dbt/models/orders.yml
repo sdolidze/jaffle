@@ -389,6 +389,13 @@ models:
                 type: number
                 format: "$#,##0.00"
                 sql: ${total_order_amount}-${total_completed_order_amount}
+              gross_margin:
+                type: number
+                label: Gross Margin
+                description: Gross margin as a percentage of order revenue, calculated as (total order amount minus total shipping cost) divided by total order amount.
+                sql: (${total_order_amount} - ${total_shipping_revenue}) / NULLIF(${total_order_amount}, 0)
+                format: percent
+                round: 2
               basic_sql_metric:
                 type: sum
                 label: Basic SQL Metric
