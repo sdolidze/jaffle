@@ -5,6 +5,7 @@ models:
     config:
       tags: ["core", "ai"]
       meta:
+        hidden: true
         spotlight:
           owner: demo@lightdash.com
         default_show_underlying_values:
