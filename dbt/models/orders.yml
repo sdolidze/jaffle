@@ -284,6 +284,10 @@ models:
         meta:
           dimension:
             type: string
+            ai_hint: |
+              Revenue-generating statuses: completed, shipped.
+              Non-revenue statuses: placed (pending/not yet fulfilled), return_pending, returned.
+              For revenue queries always filter to completed and shipped, or use the total_revenue metric.
       - name: amount
         description: Total amount (USD) of the order
         tests:
@@ -342,6 +346,10 @@ models:
                   interval: DAY
                 spotlight:
                   categories: ["revenue_growth"]
+                ai_hint: |
+                  Sum of ALL order amounts regardless of status. Includes placed, shipped, completed,
+                  return_pending, and returned orders. For revenue calculations use total_revenue,
+                  which filters to completed and shipped orders only.
               average_order_amount:
                 type: average
                 format: usd
@@ -370,6 +378,23 @@ models:
                 sql: ${total_order_amount}
                 format: usd
                 round: 2
+              total_revenue:
+                type: sum
+                label: Total Revenue
+                description: Sum of order amounts for completed and shipped orders only. Excludes placed, return_pending, and returned orders.
+                format: usd
+                round: 2
+                filters:
+                  - status:
+                      - completed
+                      - shipped
+                spotlight:
+                  categories: ["revenue_growth"]
+                drivers:
+                  - total_order_amount
+                ai_hint: |
+                  Use this metric for revenue calculations. Only counts completed and shipped orders.
+                  Do NOT use total_order_amount for revenue — it includes all statuses including non-revenue ones.
               total_completed_order_amount:
                 type: sum
                 format: usd
