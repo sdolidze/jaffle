@@ -10,7 +10,14 @@ models:
         config:
           meta:
             dimension:
-              tags: ["core", "ai"]
+              tags: [ "core", "ai" ]
+        meta:
+          metrics:
+            test_pr_metric:
+              label: Test PR metric
+              description: e2e test
+              type: count_distinct
+              format: "#,##0.###"
       - name: first_name
         description: Customer's first name. PII.
       - name: last_name
@@ -20,4 +27,4 @@ models:
         config:
           meta:
             dimension:
-              tags: ["core", "ai"]
+              tags: [ "core", "ai" ]
