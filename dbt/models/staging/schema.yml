@@ -8,7 +8,7 @@ models:
         tests:
           - unique
           - not_null
-        description: ""
+        description: Unique identifier for each customer, sourced from raw_customers.
       - name: first_name
         description: ""
       - name: last_name
