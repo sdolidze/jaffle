@@ -67,6 +67,8 @@ models:
                   categories: ['revenue_growth']
                 type: sum
                 description: Sum of all payments
+                format: usd
+                round: 2
                 # E2E tests rely on these values
                 show_underlying_values:
                   # Metrics
@@ -79,3 +81,18 @@ models:
                 drivers:
                   - unique_payment_count
                   - orders.total_order_amount
+              credit_card_amount:
+                type: sum
+                sql: CASE WHEN payment_method = 'credit_card' THEN amount ELSE 0 END
+                label: "Credit Card Amount"
+                description: "Total payment amount made via credit card"
+              coupon_amount:
+                type: sum
+                sql: CASE WHEN payment_method = 'coupon' THEN amount ELSE 0 END
+                label: "Coupon Amount"
+                description: "Total payment amount made via coupon"
+              average_payment_amount:
+                type: average
+                sql: amount
+                label: "Average Payment Amount"
+                description: "Average payment amount across all transactions"
