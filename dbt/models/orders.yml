@@ -1,11 +1,7 @@
 version: 2
 models:
   - name: orders
-    description: |
-      This table has basic information about orders, as well as some derived
-      facts based on payments
-
-      {{ doc("orders_status") }}
+    description: "EXPERIMENT: Orders table description edited via a changeset overlay."
     config:
       tags: ["core", "ai"]
       meta:
@@ -335,6 +331,8 @@ models:
                   - customers.unique_customer_count # cross-table driver example
               total_order_amount:
                 type: sum
+                label: "Total Order Amount (experiment)"
+                description: "TEST js cosmetic metric"
                 format: usd
                 round: 2
                 default_time_dimension:
@@ -441,6 +439,18 @@ models:
                 sql: ${amount}
                 filters:
                   - date_dim_param_test: "param is greater"
+              test_js_m1:
+                type: sum
+                label: "Test js M1"
+                sql: ${TABLE}.amount
+              test_js_m2:
+                type: sum
+                label: "Test js M2"
+                sql: ${TABLE}.amount
+              test_js_m3:
+                type: sum
+                label: "Test js M3"
+                sql: ${TABLE}.amount
         meta:
           dimension:
             type: number
