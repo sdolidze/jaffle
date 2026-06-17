@@ -33,6 +33,12 @@ models:
         ai_hint:
           - This is a customers table.
           - Contains customer information and demographics.
+        metrics:
+          max_phoenix_rebirths:
+            label: "Max Phoenix Rebirths"
+            description: "Highest number of phoenix rebirths recorded :fire:"
+            type: max
+            sql: rebirth_count
     description: |
       # Customers
 
