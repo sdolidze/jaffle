@@ -1,0 +1,15 @@
+version: 2
+models:
+  - name: test
+    description: SQL model for Test
+    meta:
+      label: Test
+    columns:
+      - name: id
+        meta:
+          dimension:
+            type: number
+      - name: name
+        meta:
+          dimension:
+            type: string
