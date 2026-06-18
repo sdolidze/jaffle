@@ -1,0 +1,15 @@
+version: 2
+models:
+  - name: haa
+    description: SQL model for Haa
+    meta:
+      label: Haa
+    columns:
+      - name: id
+        meta:
+          dimension:
+            type: number
+      - name: name
+        meta:
+          dimension:
+            type: string
