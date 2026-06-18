@@ -1,0 +1,15 @@
+version: 2
+models:
+  - name: ld_test_subdir_demo
+    description: SQL model for Ld test subdir demo
+    meta:
+      label: Ld test subdir demo
+    columns:
+      - name: id
+        meta:
+          dimension:
+            type: number
+      - name: name
+        meta:
+          dimension:
+            type: string
