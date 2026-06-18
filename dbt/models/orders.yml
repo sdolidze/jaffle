@@ -342,6 +342,17 @@ models:
                   interval: DAY
                 spotlight:
                   categories: ["revenue_growth"]
+              net_revenue:
+                type: sum
+                label: Net Revenue
+                description: Total revenue net of refunds. Calculated as the sum of revenue minus refunds.
+                format: usd
+                round: 2
+                sql: |
+                  CASE
+                    WHEN ${TABLE}.status = 'returned' THEN 0
+                    ELSE ${TABLE}.amount
+                  END
               average_order_amount:
                 type: average
                 format: usd
