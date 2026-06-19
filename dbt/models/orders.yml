@@ -441,6 +441,11 @@ models:
                 sql: ${amount}
                 filters:
                   - date_dim_param_test: "param is greater"
+              tiger_goal_sum:
+                type: sum
+                label: Tiger Goal Sum
+                sql: ${amount}
+                description: Sum of the amount column for the orders table (tiger_goal_sum metric)
         meta:
           dimension:
             type: number
