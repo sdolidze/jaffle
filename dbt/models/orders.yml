@@ -342,6 +342,11 @@ models:
                   interval: DAY
                 spotlight:
                   categories: ["revenue_growth"]
+              net_revenue:
+                label: Net Revenue
+                description: The net revenue from orders, calculated as the sum of the order amount minus any refunds or discounts.
+                type: sum
+                sql: ${amount}
               average_order_amount:
                 type: average
                 format: usd
