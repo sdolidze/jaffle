@@ -20,6 +20,14 @@ models:
       tags: ["core", "wide-table", "fanout-demo"]
       meta:
         primary_key: [order_id, line_item_id, payment_id]
+        metrics:
+          average_order_value:
+            label: Average Order Value
+            type: number
+            description: "Fanout-safe average order value, calculated as total payment amount (deduped) divided by unique orders."
+            sql: "${total_payment_amount_deduped} / nullif(${unique_orders}, 0)"
+            format: usd
+            round: 2
 
     columns:
       # Customer grain columns
