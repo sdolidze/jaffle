@@ -112,6 +112,11 @@ models:
             drivers:
               - total_order_amount
               - customers.average_age
+          average_days_to_ship:
+            type: average
+            label: Average Days to Ship
+            description: Average number of days between order placement and shipment. A key fulfillment performance indicator.
+            sql: ${days_to_ship}
         default_time_dimension:
           field: order_date
           interval: MONTH
@@ -261,6 +266,16 @@ models:
                 type: min
               date_of_most_recent_order:
                 type: max
+            additional_dimensions:
+              shipped_date:
+                type: date
+                hidden: true
+                sql: ${TABLE}.shipped_date
+              days_to_ship:
+                type: number
+                label: Days to Ship
+                description: Number of days between the order being placed and the order being shipped. Useful for tracking fulfillment speed and identifying delays.
+                sql: (${shipped_date} - ${order_date})
         meta:
           dimension:
             type: date
