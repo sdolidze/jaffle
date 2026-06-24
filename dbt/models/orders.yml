@@ -342,6 +342,10 @@ models:
                   interval: DAY
                 spotlight:
                   categories: ["revenue_growth"]
+              sum_total:
+                type: sum
+                format: usd
+                round: 2
               average_order_amount:
                 type: average
                 format: usd
