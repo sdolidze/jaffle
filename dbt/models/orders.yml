@@ -284,6 +284,11 @@ models:
         meta:
           dimension:
             type: string
+            ai_hint: |
+              Order lifecycle statuses: 'placed' (order created), 'shipped' (in transit),
+              'completed' (delivered and finalised — the only status that counts as revenue),
+              'return_pending' (return initiated), 'returned' (refunded).
+              Revenue metrics must filter to status = 'completed' only.
       - name: amount
         description: Total amount (USD) of the order
         tests:
