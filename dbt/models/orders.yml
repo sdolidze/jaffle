@@ -342,6 +342,11 @@ models:
                   interval: DAY
                 spotlight:
                   categories: ["revenue_growth"]
+              tiger_revenue:
+                label: Tiger Revenue
+                type: sum
+                description: Sum of the order amount, representing net revenue.
+                sql: ${amount}
               average_order_amount:
                 type: average
                 format: usd
