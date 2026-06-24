@@ -1,0 +1,11 @@
+version: 2
+models:
+  - name: test_pr_virtual_view
+    description: SQL model for Test pr virtual view
+    meta:
+      label: Test pr virtual view
+    columns:
+      - name: id
+        meta:
+          dimension:
+            type: number
