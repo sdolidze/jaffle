@@ -342,6 +342,10 @@ models:
                   interval: DAY
                 spotlight:
                   categories: ["revenue_growth"]
+              tiger_goal_sum:
+                label: Tiger Goal Sum
+                description: Sum of the amount field for orders (tiger goal sum metric)
+                type: sum
               average_order_amount:
                 type: average
                 format: usd
