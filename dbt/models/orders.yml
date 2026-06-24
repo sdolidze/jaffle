@@ -9,6 +9,7 @@ models:
     config:
       tags: ["core", "ai"]
       meta:
+        description: "resume-fix step1"
         pre_aggregates:
           - name: orders_daily_avg_demo
             dimensions:

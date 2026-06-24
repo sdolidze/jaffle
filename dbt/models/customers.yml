@@ -4,6 +4,7 @@ models:
     config:
       tags: ["core", "ai"]
       meta:
+        description: "resume-fix step2"
         parameters:
           customer_name:
             label: "Customer name"
