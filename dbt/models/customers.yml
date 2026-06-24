@@ -4,6 +4,7 @@ models:
     config:
       tags: ["core", "ai"]
       meta:
+        description: "Customers dimension (regular-path writeback retest)"
         parameters:
           customer_name:
             label: "Customer name"
