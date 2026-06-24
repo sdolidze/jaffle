@@ -141,6 +141,14 @@ models:
         config:
           meta:
             metrics:
+              paper_c_seed:
+                label: Paper C Seed
+                description: A dummy count metric for paper testing purposes.
+                type: count
+              paper_c_update:
+                label: Paper C Update
+                description: A dummy count metric for paper testing.
+                type: count
               unique_order_count:
                 type: count_distinct
                 spotlight:
