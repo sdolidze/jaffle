@@ -284,6 +284,7 @@ models:
         meta:
           dimension:
             type: string
+            ai_hint: "Order lifecycle status. Valid values: 'placed', 'shipped', 'completed', 'return_pending', 'returned'. Only orders with status = 'completed' should be included in revenue metrics. Pending ('placed', 'shipped', 'return_pending') and returned ('returned') orders must be excluded from any revenue calculation."
       - name: amount
         description: Total amount (USD) of the order
         tests:
