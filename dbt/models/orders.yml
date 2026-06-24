@@ -162,6 +162,11 @@ models:
                   - status:
                       - completed
                       - shipped
+              tiger_goal_sum:
+                label: "Tiger Goal Sum"
+                description: "Count of distinct order names, representing the tiger goal metric for the orders model."
+                type: count_distinct
+                sql: name
         meta:
           dimension:
             type: number
