@@ -10,7 +10,13 @@ models:
         config:
           meta:
             dimension:
-              tags: ["core", "ai"]
+              tags: [ "core", "ai" ]
+        meta:
+          additional_dimensions:
+            test_pr_dim:
+              label: Test pr dim
+              type: string
+              sql: ${users.customer_id}
       - name: first_name
         description: Customer's first name. PII.
       - name: last_name
@@ -20,4 +26,4 @@ models:
         config:
           meta:
             dimension:
-              tags: ["core", "ai"]
+              tags: [ "core", "ai" ]
