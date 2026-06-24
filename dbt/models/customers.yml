@@ -101,9 +101,9 @@ models:
                   {% endif %}{% endraw %}
               repeat_customer_rate:
                 label: "Repeat Customer Rate"
-                description: "The share of customers who have placed more than one order, expressed as a percentage."
+                description: "The share of customers who have placed more than one completed order, expressed as a percentage."
                 type: number
-                sql: 1.0 * COUNT(CASE WHEN ${number_of_orders} > 1 THEN ${customer_id} END) / NULLIF(COUNT(${customer_id}), 0)
+                sql: 1.0 * COUNT(CASE WHEN ${number_of_completed_orders} >= 2 THEN ${customer_id} END) / NULLIF(COUNT(${customer_id}), 0)
                 format: percent
                 round: 2
         meta:
@@ -255,6 +255,15 @@ models:
         config:
           meta:
             tags: ["ai"]
+            dimension:
+              hidden: true
+        meta:
+          dimension:
+            type: number
+      - name: number_of_completed_orders
+        description: "Number of orders with status = 'completed' for this customer"
+        config:
+          meta:
             dimension:
               hidden: true
         meta:

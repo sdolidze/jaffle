@@ -24,7 +24,8 @@ customer_orders as (
 
         min(order_date) as first_order,
         max(order_date) as most_recent_order,
-        count(order_id) as number_of_orders
+        count(order_id) as number_of_orders,
+        count(case when status = 'completed' then order_id end) as number_of_completed_orders
     from orders
 
     group by 1
@@ -69,6 +70,7 @@ final as (
         customer_orders.first_order,
         customer_orders.most_recent_order,
         customer_orders.number_of_orders,
+        customer_orders.number_of_completed_orders,
         customer_payments.total_amount as customer_lifetime_value,
         {{ date_diff_days('customer_orders.first_order', 'customers.created') }} AS days_between_created_and_first_order,
         {{ timestamp_diff_days('customer_orders.most_recent_order', 'customer_orders_latest.latest_order') }} AS days_since_last_order
