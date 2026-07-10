@@ -6,6 +6,8 @@ models:
       facts based on payments
 
       {{ doc("orders_status") }}
+
+      Used for local AI writeback end-to-end verification.
     config:
       tags: ["core", "ai"]
       meta:
