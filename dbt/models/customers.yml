@@ -1,6 +1,7 @@
 version: 2
 models:
   - name: customers
+    description: "Customer-level analytics model combining profile, order, payment, and lifetime-value information."
     config:
       tags: ["core", "ai"]
       meta:
